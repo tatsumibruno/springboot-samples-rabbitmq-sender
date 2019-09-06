@@ -11,6 +11,7 @@ public class MessageSender {
     private RabbitTemplate rabbitTemplate;
 
     public void send(String message) {
-        rabbitTemplate.convertAndSend("spring-boot-exchange", "foo.bar.baz", message);
+        System.out.println(message);
+        rabbitTemplate.convertAndSend("messages-exchange", "message-key", message);
     }
 }
